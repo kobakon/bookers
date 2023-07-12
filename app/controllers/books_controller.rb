@@ -11,7 +11,7 @@ class BooksController < ApplicationController
     #データをデータベースに保存するためのsaveメソッド実行
     book.save
 
-    #フラッシュメッセージ実装
+
     redirect_to book_path(book.id)
   end
 
@@ -24,6 +24,19 @@ class BooksController < ApplicationController
   end
 
   def edit
+    @book = Book.find(params[:id])
+  end
+
+  def update
+    book = Book.find(params[:id])
+    book.update(book_params)
+    redirect_to book_path(book.id)
+  end
+
+  def destroy
+    book = Book.find(params[:id])  #データを1件取得
+    book.destroy #データを削除
+    redirect_to '/books'
   end
 
 private
