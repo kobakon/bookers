@@ -1,4 +1,4 @@
-<!-- 一覧 -->
+<!-- 見出し -->
 <h1>Books</h1>
 
 <!--　バリデーション メッセージ -->
@@ -11,13 +11,21 @@
   </ul>
 <% end %>
 
-<table>
-  <% @books.each do |book| %>
-    <p>Title</p>
-    <p><%= book.title %></p>
-    <p>Body</p>
-    <p><%= book.body %></p>
+<!-- 一覧 -->
 
+  <% @books.each do |book| %>
+    <table>
+
+        <tr>
+          <th>Title</th>
+          <th>Body</th>
+        </tr>
+        <tr>
+          <td><%= book.title %></td>
+          <td><%= book.body %></td>
+        </tr>
+
+    </table>
     <span>
       <%= link_to "Show", book_path(book.id) %>
     </span>
